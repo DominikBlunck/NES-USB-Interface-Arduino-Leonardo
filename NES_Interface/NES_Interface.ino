@@ -160,54 +160,7 @@ void loop()
   {
     joySt.buttons = joySt.buttons | 8;
   }
-  
-  
-  //Tastenkombinationen
-  //A + B
-  if(controller_data == (B01111111 & B10111111))
-  {
-    joySt.buttons = joySt.buttons | 4;
-    joySt.buttons = joySt.buttons | 8;
-    
-  }
-  
-  //RIGHT + B
-  if(controller_data == (B11111110 & B10111111))
-  {
-    joySt.buttons = joySt.buttons | 8;
-    joySt.xAxis = 255;   
-  }
-  
-  //LEFT + A
-  if(controller_data == (B11111101 & B01111111))
-  {
-    joySt.buttons = joySt.buttons | 4;
-    joySt.xAxis = 0; 
-  }
-  
-  //RIGHT + A
-  if(controller_data == (B11111110 & B01111111))
-  {
-    joySt.buttons = joySt.buttons | 4;
-    joySt.xAxis = 255; 
-  }
-  
-  //LEFT + B  
-  if(controller_data == (B11111101 & B10111111))
-  {
-    joySt.buttons = joySt.buttons | 8;
-    joySt.xAxis = 0;
-  }
-  
-  //RIGHT + B + A
-  if(controller_data == (B11111110 & B10111111 & B01111111))
-  {
-    joySt.buttons = joySt.buttons | 4;
-    joySt.buttons = joySt.buttons | 8;    
-    joySt.xAxis = 255; 
-  }
-    
-  
+
   // Send joystick state
   Joystick.setState(&joySt);
   
