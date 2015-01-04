@@ -16,7 +16,7 @@ JoyState_t joySt;
 
 /* SETUP */
 void setup()
-{  
+{
   //Joystick Tasten vorbereiten
   joySt.xAxis = 127;
   joySt.yAxis = 127;
@@ -112,51 +112,51 @@ void loop()
   //START=11101111 bit4
   //A=01111111 bit7
   //B=10111111 bit6
-  
+
   //UP
-  if(controller_data == B11110111)
+  if((controller_data & B00001000) == 0)
   {
     joySt.yAxis = 0;
   }
   
   //DOWN
-  if(controller_data == B11111011)
+  if((controller_data & B00000100) == 0)
   {
     joySt.yAxis = 255;
   }
   
   //LEFT
-  if(controller_data == B11111101)
+  if((controller_data & B00000010) == 0)
   {
     joySt.xAxis = 0;
   }
   
   //RIGHT
-  if(controller_data == B11111110)
+  if((controller_data & B00000001) == 0)
   {
     joySt.xAxis = 255;
   }
   
   //SELECT
-  if(controller_data == B11011111)
+  if((controller_data & B00100000) == 0)
   {
     joySt.buttons = joySt.buttons | 1;
   }
   
   //START
-  if(controller_data == B11101111)
+  if((controller_data & B00010000) == 0)
   {
     joySt.buttons = joySt.buttons | 2;
   }
   
   //A
-  if(controller_data == B01111111)
+  if((controller_data & B10000000) == 0)
   {
     joySt.buttons = joySt.buttons | 4;
   }
   
   //B
-  if(controller_data == B10111111)
+  if((controller_data & B01000000) == 0)
   {
     joySt.buttons = joySt.buttons | 8;
   }
